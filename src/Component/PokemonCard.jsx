@@ -3,7 +3,7 @@ function PokemonCard(props){
         <div>
         <li className="pokemon-card">
             <img src="" alt="" />
-            <p style={{fontSize:"30px" }}>{props.item.name}</p>
+            <p className="pokemon-name">{props.item.name}</p>
         </li>
         </div>
     )

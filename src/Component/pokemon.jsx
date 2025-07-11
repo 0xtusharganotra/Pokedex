@@ -1,11 +1,12 @@
 import { useEffect , useState } from "react"
 import axios from "axios"
 import PokemonCard from "./PokemonCard";
+import PokeSearch from "./PokeSearch";
 function Pokemon(){
 
 
 const [PokemonData, setPokemonData] = useState([]);
-const [loading , setloading] = useState(false);
+const [loading , setloading] = useState(true);
 
 
     useEffect(()=>{
@@ -28,7 +29,7 @@ const [loading , setloading] = useState(false);
                 const promisifiedpokemondata = await Promise.all(detailedPokemonData);
                 console.log(promisifiedpokemondata);
                 setPokemonData(promisifiedpokemondata);
-                setloading(true);
+                setloading(false);
             }
             catch(error){
                 console.log(error);
@@ -43,13 +44,14 @@ const [loading , setloading] = useState(false);
 return(
     <div className="container">
          <header>
-                <h1>Pokedex</h1>
+            <img src="\Poke_Ball.webp" style={{width:"100px", height:"auto"}} alt="" />
+               <img src="https://fontmeme.com/permalink/250711/8e18c0eadb15f16d846e7ab4050f0832.png" style={{height:"80px" , width:"auto"}} alt="" />
             </header>
-            
+            <PokeSearch/>
             <div>
             <ul className="cards">
                 {
-                    loading ? PokemonData.map((item)=> <PokemonCard key = {item.id} item = {item} />) : <div>Loading...</div>
+                    loading == true ? <div className="loading">Loading...</div> : PokemonData.map((item)=> <PokemonCard key = {item.id} item = {item} />) 
                 }  
             </ul>
                 </div>
