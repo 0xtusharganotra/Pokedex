@@ -1,4 +1,4 @@
-# 🧠 React Pokedex App
+# Pokedex
 
 A sleek and modern **Pokédex web application** built using **React + Vite** that fetches data from the [PokéAPI](https://pokeapi.co/). It allows users to view detailed Pokémon cards, search by name, and explore various stats like type, speed, and abilities.
 
