@@ -39,7 +39,9 @@ h1 {
 
 p,
 span {
-  font-size: 60px;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 li {
@@ -78,6 +80,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 3.2rem;
 }
 
@@ -144,16 +147,18 @@ figure {
 }
 
 
-
-.pokemon-image {
-  width: 60%;
-  height: 15rem;
+.pokemon-info {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-pokemon-info {
-  text-align: center;
+.pokehws{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
 
 
 .loading{
@@ -182,4 +187,29 @@ pokemon-info {
 .inputbox svg{
   cursor: pointer;
   font-size: 35px;
+}
+
+.pokeimg{
+ 
+  width: 60%;
+  height: 180px;
+
+}
+
+.pokeimg svg{
+  font-size: 30px;
+}
+
+.type{
+  height: 18px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ptype{
+  width: 100px;
+  height: 18px;
+  background: white;
+  border-radius: 30px;
 }

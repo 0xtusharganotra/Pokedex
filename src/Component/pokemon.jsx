@@ -7,6 +7,7 @@ function Pokemon(){
 
 const [PokemonData, setPokemonData] = useState([]);
 const [loading , setloading] = useState(true);
+const [search,setsearch] = useState("");
 
 
     useEffect(()=>{
@@ -14,7 +15,7 @@ const [loading , setloading] = useState(true);
         
         async function fetchPokemon(){
             try{
-                const res = await axios.get("https://pokeapi.co/api/v2/ability/?limit=24");
+                const res = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=124");
                 //data is in res.data
                 const pokemondata = res.data.results;
                 const detailedPokemonData = pokemondata.map(async(item)=> 
@@ -41,17 +42,19 @@ const [loading , setloading] = useState(true);
     },[])
 
 
+    const SearchData = PokemonData.filter((item)=> item.name.toLowerCase().includes(search.toLowerCase()));
+
 return(
     <div className="container">
          <header>
             <img src="\Poke_Ball.webp" style={{width:"100px", height:"auto"}} alt="" />
                <img src="https://fontmeme.com/permalink/250711/8e18c0eadb15f16d846e7ab4050f0832.png" style={{height:"80px" , width:"auto"}} alt="" />
             </header>
-            <PokeSearch/>
+            <PokeSearch search={search} setsearch = {setsearch} pokemon = {PokemonData} />
             <div>
             <ul className="cards">
                 {
-                    loading == true ? <div className="loading">Loading...</div> : PokemonData.map((item)=> <PokemonCard key = {item.id} item = {item} />) 
+                    loading == true ? <div className="loading">Loading...</div> : SearchData.map((item)=> <PokemonCard key = {item.id} item = {item} />) 
                 }  
             </ul>
                 </div>
